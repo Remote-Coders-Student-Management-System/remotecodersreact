@@ -10,11 +10,13 @@ import ProductsPD from './pages/ProductsPD/ProductsPD';
 import ProductsKX from './pages/ProductsKX/ProductsKX';
 import Suppliers from './pages/Suppliers/Suppliers';
 import CreateSupplier from './pages/CreateSupplier/CreateSupplier'
+import Login from './pages/Login/Login';
 function App() {
   return (
     <BrowserRouter>
   <Routes>
-    <Route exact to path='/' element={<Home />} />
+    <Route exact to path='/' element={<Login/>} />
+    <Route exact to path='/Home' element={<Home />} />
     <Route exact to path='/Orders' element={<Orders/>}/>
     <Route exact to path='/OrdersPD' element={<OrdersPD/>} />
     <Route exact to path='/Profile' element={<Profile/>} />
