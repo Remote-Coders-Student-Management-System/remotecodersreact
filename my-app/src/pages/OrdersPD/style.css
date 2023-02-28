@@ -76,3 +76,30 @@ img {border-radius: 50%;}
         background-color: #04AA6D;
         color: white;
       }
+
+
+      .btn{
+        border: none;
+        color: white;
+        padding: 5px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 5px;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    
+    .btn-edit{
+        background-color: blue;
+    }
+    
+    .btn-delete{
+        background-color: brown;
+    }
+    
+    .btn-view{
+        background-color: rgba(219, 121, 16, 0.64);
+        color: black;
+    }

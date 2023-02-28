@@ -1,42 +1,65 @@
-import React from 'react'
+import React ,{useState, useEffect} from 'react'
+import axios from "axios"
+import { Link } from 'react-router-dom'
 
 
 const OrdersKX = () => {
+  const[data, setData] = useState([]);
+
+  const loadData = async () => {
+    const response = await axios.get("http://localhost:5001/api/get");
+    setData(response.data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return (
     <div>
         <div class="box-shadow">
   
   <h1><strong><b><u>Knowledge Explorers Orders</u></b></strong></h1>
-  <p>Sorry!, but you do not have any registered orders right now please "create" a item to update,edit, and delete</p>
+  
 
   <table id="customers">
   <tr>
     <th>KX Order Number</th>
     <th>Order Name</th>
     <th>Description</th>
+    <th></th>
   </tr>
+  
+  {data.map((item, index)=> {
+    return(
   <tr>
-    <td>KX0001</td>
-    <td>Magicbit </td>
-    <td>Quantity 1 & Price Rs.8000/-</td>
+    <td>{item.kx_order_number}</td>
+    <td>{item.order_name}</td>
+    <td>{item.description}</td>
+
+    <td>
+      
+      
+       <Link to={`/view/${item.username}`}>
+         <button className='btn btn-view'>View</button>
+         </Link>             
+         <button className='btn btn-delete' >Delete</button>       
+      </td>
   </tr>
+  )
+    
+})}
+  
   </table>
 
 <div id="mybutton4">
 <a href="orders-create-KE.html"><button class="button button1">Create</button></a> 
 </div>
 
-<div id="mybutton3">
-<button class="button button1">Delete</button>
-</div>
 
-<div id="mybutton2">
-<a href="orders-edit-KE.html"><button class="button button1">Edit</button></a>
-</div>
 
-<div id="mybutton1">
-<a href="orders-update-KE.html">   <button class="button button1">Update</button></a> 
-</div>
+
+
 </div>
     </div>
   )
